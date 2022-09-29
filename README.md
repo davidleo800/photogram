@@ -1,0 +1,6 @@
+Run it
+
+
+```
+ionic serve
+```

@@ -1,0 +1,39 @@
+<ion-header class="ion-no-border" [translucent]="true">
+  <ion-toolbar>
+    
+    <ion-buttons slot="start">
+      <ion-icon slot="icon-only" name="bonfire" ></ion-icon>
+    </ion-buttons>
+    
+    <ion-title>
+      Photograms
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  color="light" [fullscreen]="true">
+
+  <!-- Refresher -->
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <!-- Posts -->
+  <app-posts [posts]="posts" >
+
+  </app-posts>
+
+
+  <!-- infinite Scroll -->
+
+  <ion-infinite-scroll  [disabled]="!enabled"
+                        threshold="150px" 
+                        (ionInfinite)="next($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>
